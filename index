@@ -3,11 +3,11 @@
 <head>
   <!--
     Name: Mikayla Dickerson
+    Student ID: mikdic9704
     Date: 06-22-2026
 
-    Purpose: This webpage serves as a personal portfolio homepage
-    with About, Projects, and Contact sections. It also includes
-    JavaScript that personalizes the user experience.
+    Purpose: Personal portfolio homepage with About, Projects,
+    and Contact sections plus JavaScript personalization.
   -->
 
   <meta charset="UTF-8">
@@ -19,6 +19,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       line-height: 1.6;
+      background-color: #f4f4f4;
     }
 
     header {
@@ -39,17 +40,29 @@
     nav a {
       color: white;
       text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     section {
+      background: white;
+      margin: 15px;
       padding: 20px;
+      border-radius: 8px;
     }
 
     .project img {
       width: 200px;
       height: auto;
-      margin: 10px;
       border: 1px solid #ccc;
+      margin-top: 5px;
+    }
+
+    .project {
+      margin-bottom: 20px;
     }
 
     form {
@@ -58,17 +71,27 @@
       max-width: 400px;
     }
 
+    label {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
     input, textarea {
-      margin-bottom: 10px;
+      margin-top: 5px;
       padding: 8px;
     }
 
     button {
+      margin-top: 15px;
       padding: 10px;
       background: #2c3e50;
       color: white;
       border: none;
       cursor: pointer;
+    }
+
+    button:hover {
+      background: #1a242f;
     }
   </style>
 </head>
@@ -80,7 +103,7 @@
     <h1 id="welcomeMessage">Welcome to My Portfolio</h1>
   </header>
 
-  <!-- Navigation Menu -->
+  <!-- Navigation -->
   <nav>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
@@ -91,9 +114,9 @@
   <section id="about">
     <h2>About</h2>
     <p>
-      Hello! My name is Mikayla Dickerson. I am currently building my skills in web development,
-      programming, and IT systems. I enjoy learning how technology works and applying it to real-world
-      projects. This portfolio showcases some of my work and progress.
+      Hello! My name is Mikayla Dickerson. I am learning web development and IT skills,
+      including HTML, CSS, JavaScript, and networking concepts. This portfolio showcases
+      my progress and projects.
     </p>
   </section>
 
@@ -102,23 +125,23 @@
     <h2>Projects</h2>
 
     <div class="project">
-      <p>Project 1</p>
-      <a href="https://github.com/yourusername/project1">
-        <img src="https://via.placeholder.com/200" alt="Project 1">
+      <h3>Project 1</h3>
+      <a href="https://github.com/yourusername/project1" target="_blank">
+        <img src="https://via.placeholder.com/200" alt="Project 1 Screenshot">
       </a>
     </div>
 
     <div class="project">
-      <p>Project 2</p>
-      <a href="https://github.com/yourusername/project2">
-        <img src="https://via.placeholder.com/200" alt="Project 2">
+      <h3>Project 2</h3>
+      <a href="https://github.com/yourusername/project2" target="_blank">
+        <img src="https://via.placeholder.com/200" alt="Project 2 Screenshot">
       </a>
     </div>
 
     <div class="project">
-      <p>Project 3</p>
-      <a href="https://github.com/yourusername/project3">
-        <img src="https://via.placeholder.com/200" alt="Project 3">
+      <h3>Project 3</h3>
+      <a href="https://github.com/yourusername/project3" target="_blank">
+        <img src="https://via.placeholder.com/200" alt="Project 3 Screenshot">
       </a>
     </div>
   </section>
@@ -128,26 +151,31 @@
     <h2>Contact</h2>
 
     <form>
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="text" name="subject" placeholder="Subject" required>
-      <textarea name="message" rows="5" placeholder="Message" required></textarea>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
 
       <button type="submit">Submit</button>
     </form>
   </section>
 
-  <!-- JavaScript for personalized interaction -->
+  <!-- JavaScript personalization -->
   <script>
-    // Prompt the user for their name
     let userName = prompt("Please enter your name:");
 
-    // If user enters nothing, set a default name
-    if (!userName) {
+    // Handle cancel or empty input
+    if (!userName || userName.trim() === "") {
       userName = "Guest";
     }
 
-    // Update the welcome message dynamically
     document.getElementById("welcomeMessage").textContent =
       "Welcome, " + userName + ", to My Portfolio!";
   </script>
