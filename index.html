@@ -1,184 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    Name: Mikayla Dickerson
-    Student ID: mikdic9704
-    Date: 06-22-2026
+    <!--
+        Name: Mikayla Dickerson
+        Student ID: mikdic9704
+        Date: 06-22-2026
 
-    Purpose: Personal portfolio homepage with About, Projects,
-    and Contact sections plus JavaScript personalization.
-  -->
+        Purpose:
+        Personal portfolio website demonstrating HTML, CSS,
+        JavaScript, conditional logic, loops, event listeners,
+        dark mode, and form interaction.
+    -->
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mikayla Dickerson Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikayla Dickerson Portfolio</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      line-height: 1.6;
-      background-color: #f4f4f4;
-    }
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #222;
+            line-height: 1.6;
+            transition: background-color .3s, color .3s;
+        }
 
-    header {
-      background: #2c3e50;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
 
-    nav {
-      background: #34495e;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px;
-    }
+        header {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
+        body.dark-mode header {
+            background: #000;
+        }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+        .toggle {
+            margin-top: 15px;
+        }
 
-    section {
-      background: white;
-      margin: 15px;
-      padding: 20px;
-      border-radius: 8px;
-    }
+        nav {
+            background: #34495e;
+            padding: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
 
-    .project img {
-      width: 200px;
-      height: auto;
-      border: 1px solid #ccc;
-      margin-top: 5px;
-    }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-    .project {
-      margin-bottom: 20px;
-    }
+        nav a:hover {
+            text-decoration: underline;
+        }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      max-width: 400px;
-    }
+        section {
+            background: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+        }
 
-    label {
-      margin-top: 10px;
-      font-weight: bold;
-    }
+        body.dark-mode section {
+            background: #1f1f1f;
+        }
 
-    input, textarea {
-      margin-top: 5px;
-      padding: 8px;
-    }
+        h2 {
+            margin-top: 0;
+        }
 
-    button {
-      margin-top: 15px;
-      padding: 10px;
-      background: #2c3e50;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
+        .project {
+            margin-bottom: 20px;
+        }
 
-    button:hover {
-      background: #1a242f;
-    }
-  </style>
+        .project img {
+            width: 220px;
+            border: 1px solid #ccc;
+        }
+
+        .featured {
+            border: 3px solid #2c3e50;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            background: #eef5ff;
+        }
+
+        body.dark-mode .featured {
+            background: #2a2a2a;
+            border-color: #66aaff;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        form {
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            cursor: pointer;
+            background: #2c3e50;
+            color: white;
+            border: none;
+        }
+
+        button:hover {
+            background: #1c2833;
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- Personalized welcome message -->
-  <header>
-    <h1 id="welcomeMessage">Welcome to My Portfolio</h1>
-  </header>
+<header>
 
-  <!-- Navigation -->
-  <nav>
+    <h1 id="welcomeMessage">Welcome to My Portfolio</h1>
+
+    <!-- Dark Mode Toggle -->
+    <div class="toggle">
+        <label>
+            <input type="checkbox" id="darkModeToggle">
+            Dark Mode
+        </label>
+    </div>
+
+</header>
+
+<nav>
     <a href="#about">About</a>
+    <a href="#featured">Featured Content</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
-  </nav>
+</nav>
 
-  <!-- About Section -->
-  <section id="about">
+<section id="about">
+
     <h2>About</h2>
-    <p>
-      Hello! My name is Mikayla Dickerson. I am learning web development and IT skills,
-      including HTML, CSS, JavaScript, and networking concepts. This portfolio showcases
-      my progress and projects.
-    </p>
-  </section>
 
-  <!-- Projects Section -->
-  <section id="projects">
+    <p>
+        Hello! My name is Mikayla Dickerson. I am currently studying
+        Information Technology and enjoy learning HTML, CSS,
+        JavaScript, networking, and programming. This portfolio
+        highlights some of my coursework and projects while
+        demonstrating the web development skills I continue to build.
+    </p>
+
+    <h3>Skills & Technologies</h3>
+
+    <!-- Skills generated by JavaScript -->
+    <ul id="skillsList"></ul>
+
+</section>
+
+<section id="featured">
+
+    <h2>Featured Content</h2>
+
+    <!-- University Resources -->
+    <div id="universityResources" class="featured">
+
+        <h3>University Resources</h3>
+
+        <p>
+            Helpful ECPI resources:
+        </p>
+
+        <ul>
+            <li>
+                <a href="https://my.ecpi.edu" target="_blank">
+                    ECPI Student Portal
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.ecpi.edu" target="_blank">
+                    ECPI University
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+    <!-- Personal Projects -->
+    <div id="personalProjects" class="featured">
+
+        <h3>Personal Projects</h3>
+
+        <a href="https://github.com/mikaylajd7" target="_blank">
+            <img src="https://via.placeholder.com/220x140?text=GitHub+Projects"
+                 alt="GitHub Projects">
+        </a>
+
+        <p>
+            Visit my GitHub profile to view additional personal and
+            coursework projects.
+        </p>
+
+    </div>
+
+</section>
+
+<section id="projects">
+
     <h2>Projects</h2>
 
     <div class="project">
-      <h3>Project 1</h3>
-      <a href="https://github.com/yourusername/project1" target="_blank">
-        <img src="https://via.placeholder.com/200" alt="Project 1 Screenshot">
-      </a>
+        <h3>Portfolio Website</h3>
+
+        <a href="https://github.com/mikaylajd7" target="_blank">
+            <img src="https://via.placeholder.com/220x140?text=Portfolio"
+                 alt="Portfolio Project">
+        </a>
     </div>
 
     <div class="project">
-      <h3>Project 2</h3>
-      <a href="https://github.com/yourusername/project2" target="_blank">
-        <img src="https://via.placeholder.com/200" alt="Project 2 Screenshot">
-      </a>
+        <h3>HTML Assignment</h3>
+
+        <a href="https://github.com/mikaylajd7" target="_blank">
+            <img src="https://via.placeholder.com/220x140?text=HTML+Project"
+                 alt="HTML Project">
+        </a>
     </div>
 
-    <div class="project">
-      <h3>Project 3</h3>
-      <a href="https://github.com/yourusername/project3" target="_blank">
-        <img src="https://via.placeholder.com/200" alt="Project 3 Screenshot">
-      </a>
-    </div>
-  </section>
+</section>
 
-  <!-- Contact Section -->
-  <section id="contact">
+<section id="contact">
+
     <h2>Contact</h2>
 
-    <form>
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
+    <form id="contactForm">
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
+        <label for="name">Name</label>
+        <input type="text"
+               id="name"
+               required>
 
-      <label for="subject">Subject</label>
-      <input type="text" id="subject" name="subject" required>
+        <label for="email">Email</label>
+        <input type="email"
+               id="email"
+               required>
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+        <label for="subject">Subject</label>
+        <input type="text"
+               id="subject"
+               required>
 
-      <button type="submit">Submit</button>
+        <label for="message">Message</label>
+        <textarea id="message"
+                  rows="5"
+                  required></textarea>
+
+        <button id="submitButton">
+            Submit
+        </button>
+
     </form>
-  </section>
 
-  <!-- JavaScript personalization -->
-  <script>
-    let userName = prompt("Please enter your name:");
+</section>
 
-    // Handle cancel or empty input
-    if (!userName || userName.trim() === "") {
-      userName = "Guest";
+<script>
+
+    // Prompt for visitor name
+    let visitor = prompt("Please enter your name:");
+
+    if (visitor === null || visitor.trim() === "") {
+        visitor = "Guest";
     }
 
     document.getElementById("welcomeMessage").textContent =
-      "Welcome, " + userName + ", to My Portfolio!";
-  </script>
+        "Welcome, " + visitor + ", to My Portfolio!";
+
+    // Array of skills
+    const skills = [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Git",
+        "GitHub"
+    ];
+
+    const skillsList = document.getElementById("skillsList");
+
+    // Display skills using forEach()
+    skills.forEach(function(skill) {
+
+        const li = document.createElement("li");
+        li.textContent = skill;
+        skillsList.appendChild(li);
+
+    });
+
+    // Count project entries
+    const projectCount =
+        document.querySelectorAll(".project").length;
+  /* -----------------------------
+   CONTINUE SCRIPT
+------------------------------ */
+
+  // Featured content conditional logic
+  const projectCount = document.querySelectorAll(".project").length;
+
+  const universityResources = document.getElementById("universityResources");
+  const personalProjects = document.getElementById("personalProjects");
+
+  // If fewer than 3 projects → show both sections
+  if (projectCount < 3) {
+    universityResources.style.display = "block";
+    personalProjects.style.display = "block";
+  } else {
+    // Otherwise hide university resources and show personal projects only
+    universityResources.style.display = "none";
+    personalProjects.style.display = "block";
+  }
+
+  // -----------------------------
+  // DARK MODE TOGGLE
+  // -----------------------------
+  const darkToggle = document.getElementById("darkModeToggle");
+
+  darkToggle.addEventListener("change", function () {
+    document.body.classList.toggle("dark-mode");
+  });
+
+  // -----------------------------
+  // FORM SUBMIT INTERACTIVITY
+  // -----------------------------
+  const submitBtn = document.getElementById("submitButton");
+
+  submitBtn.addEventListener("click", function (event) {
+    event.preventDefault(); // stop page refresh
+
+    const nameValue = document.getElementById("name").value;
+    const finalName = nameValue.trim() === "" ? "Guest" : nameValue;
+
+    alert("Thank you, " + finalName + ", your message has been sent!");
+  });
+
+</script>
 
 </body>
 </html>
